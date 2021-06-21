@@ -12,7 +12,6 @@ ActiveAdmin.register_page "Dashboard" do
         column :price
         end
         strong  { link_to "View All Products",admin_products_path}
-
     end
 
     # Here is an example of a simple dashboard with columns and panels.

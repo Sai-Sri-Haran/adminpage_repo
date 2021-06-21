@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_022605) do
+ActiveRecord::Schema.define(version: 2021_06_18_045708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 2021_06_17_022605) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "orderid"
+    t.string "product"
+    t.bigint "showusers_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["showusers_id"], name: "index_orders_on_showusers_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.integer "product_size"
@@ -58,6 +67,8 @@ ActiveRecord::Schema.define(version: 2021_06_17_022605) do
     t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "category"
+    t.string "brand"
   end
 
   create_table "showusers", force: :cascade do |t|
@@ -69,4 +80,25 @@ ActiveRecord::Schema.define(version: 2021_06_17_022605) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "usersmanagements", force: :cascade do |t|
+    t.string "name"
+    t.string "password"
+    t.string "email"
+    t.string "phone"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "userupdates", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.string "password"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "orders", "showusers", column: "showusers_id"
 end
