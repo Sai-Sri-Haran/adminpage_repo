@@ -1,3 +1,0 @@
-class Showuser < ApplicationRecord
-    
-end
