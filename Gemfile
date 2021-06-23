@@ -57,6 +57,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #project gem
+group :production do
+  gem 'spring'
+end
 
 gem 'devise', '~> 4.8'
 gem 'activeadmin', '~> 2.9'
