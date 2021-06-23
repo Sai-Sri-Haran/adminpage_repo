@@ -1,11 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  orderid: MyString
-  product: MyString
-  showusers: one
+  email: MyString
+  order_id: 
+  product_id: 1
+  status: MyString
 
 two:
-  orderid: MyString
-  product: MyString
-  showusers: two
+  email: MyString
+  order_id: 
+  product_id: 1
+  status: MyString
